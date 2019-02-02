@@ -5,14 +5,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safeParser = require('postcss-safe-parser');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: ['@babel/polyfill', "./src/index.js"],
     output: {
-        filename: "js/bundle.[contentHash].js",
+        filename: "index.js",
         path: path.resolve(__dirname, "build"),
         publicPath: "./"
     },
@@ -66,7 +65,15 @@ module.exports = {
         }
     },
     optimization: {
-        minimizer: [new UglifyJsPlugin()],
+        minimizer: [
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    output: {
+                        comments: false
+                    }
+                }
+            })
+        ],
     },
     plugins: [
         new ProgressBarPlugin(),
@@ -81,6 +88,5 @@ module.exports = {
         }),
         new CopyWebpackPlugin([{from: 'src/images', to: 'images'}]),
         new CleanWebpackPlugin("build"),
-        new HtmlWebpackPlugin({template: "src/index.html"})
     ]
 };
