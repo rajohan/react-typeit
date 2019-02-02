@@ -4,11 +4,19 @@
   "description": "Simple and light weight React WYSIWYG editor",
   "private": true,
   "dependencies": {
-    "node-sass": "^4.11.0",
+    "react-svg": "^7.2.6",
+    "node-sass": "^4.11.0"
+  },
+  "devDependencies": {
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0-alpha.1",
     "react-scripts": "2.1.3",
-    "react-svg": "^7.2.6"
+    "node-sass": "^4.11.0"
+  },
+  "peerDependencies": {
+    "node-sass": "^4.11.0",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1"
   },
   "repository": {
     "type": "git",
@@ -34,6 +42,9 @@
     "WYSIWYG",
     "editor"
   ],
-  "author": "Raymond Johannessen",
+  "author": {
+    "name": "Raymond Johannessen",
+    "email": "mail@rajohan.no"
+  },
   "license": "MIT"
 }
