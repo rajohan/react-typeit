@@ -11,10 +11,10 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
     entry: ["@babel/polyfill", "./src/TextEditor.js"],
     output: {
-        filename: "ReactTypeIt.min.js",
+        filename: "reactTypeIt.min.js",
         path: path.resolve(__dirname, "build"),
         publicPath: "./",
-        library: "ReactTypeIt",
+        library: "reactTypeIt",
         libraryTarget: "umd",
         umdNamedDefine: true,
         globalObject: 'typeof self !== \'undefined\' ? self : this',

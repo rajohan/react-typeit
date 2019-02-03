@@ -1,6 +1,6 @@
 const config = {
     toolbar: {
-        imgRoot: "images/react-typeit",
+        imgRoot: "images/react-typeit/",
         tools: [
             ["bold", "italic", "underline", "strikethrough"],
             ["header1", "header2"],
