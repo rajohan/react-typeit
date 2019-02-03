@@ -12,7 +12,6 @@ import "react-typeit/build/styles.min.css"
 The images needs to resolve on YOUR_SERVER/images/react-typeit
 
 To get the editors content use the onChange prop
-```
+```javascript
 <TypeIt onChange={content => console.log(content)} />
 ```
-
