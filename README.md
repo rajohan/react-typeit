@@ -2,9 +2,9 @@
 
 [![](https://img.shields.io/npm/v/react-typeit.svg?style=flat)](https://www.npmjs.com/package/react-typeit)
 [![](https://img.shields.io/npm/dt/react-typeit.svg?style=flat)](https://www.npmjs.com/package/react-typeit)
-[![](https://img.shields.io/bundlephobia/min/react-typeit.svg?style=flat)](https://mit-license.org/)
-![](https://img.shields.io/npm/l/react-typeit.svg?style=flat)
-![](https://img.shields.io/snyk/vulnerabilities/npm/react-typeit.svg?style=flat)
+[![](https://img.shields.io/bundlephobia/min/react-typeit.svg?style=flat)](https://www.npmjs.com/package/react-typeit)
+[![](https://img.shields.io/npm/l/react-typeit.svg?style=flat)](https://mit-license.org/)
+[![](https://img.shields.io/snyk/vulnerabilities/npm/react-typeit.svg?style=flat)](/)
 [![](https://img.shields.io/npm/dependency-version/react-typeit/peer/react.svg?style=flat)](https://www.npmjs.com/package/react)
 [![](https://img.shields.io/npm/dependency-version/react-typeit/peer/react-dom.svg?style=flat)](https://www.npmjs.com/package/react-dom)
 
