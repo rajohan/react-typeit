@@ -1,6 +1,6 @@
 const config = {
     toolbar: {
-        imgRoot: "images/",
+        imgRoot: "images/react-typeit",
         tools: [
             ["bold", "italic", "underline", "strikethrough"],
             ["header1", "header2"],
@@ -14,7 +14,7 @@ const config = {
         ]
     },
     emoticons: {
-        imgRoot: "images/emoticons/",
+        imgRoot: "images/react-typeit/emoticons/",
         icons: [
             "smile", "wink", "tongue", "grin", "laugh", "frowny", "unsure", "cry", "grumpy",
             "angry", "astonished", "afraid", "nerd", "dejected", "bigEyes", "sunglasses",

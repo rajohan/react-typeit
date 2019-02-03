@@ -1,6 +1,6 @@
 {
   "name": "react-typeit",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "description": "Simple and light weight React WYSIWYG editor",
   "license": "MIT",
   "author": {
@@ -25,7 +25,7 @@
     "WYSIWYG",
     "editor"
   ],
-  "main": "build/index.js",
+  "main": "build/ReactTypeIt.js",
   "engines": {
     "node": ">=7.8.0"
   },
@@ -33,7 +33,8 @@
     "build"
   ],
   "dependencies": {
-    "react-svg": "^7.2.6"
+    "react-svg": "^7.2.6",
+    "url-loader": "^1.1.2"
   },
   "peerDependencies": {
     "react": "^16.8.0-alpha.1",

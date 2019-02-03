@@ -11,7 +11,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
     entry: ["@babel/polyfill", "./src/TextEditor.js"],
     output: {
-        filename: "index.js",
+        filename: "ReactTypeIt.min.js",
         path: path.resolve(__dirname, "build"),
         publicPath: "./",
         library: "ReactTypeIt",
@@ -25,7 +25,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(gif|png|jpe?g|svg)$/,
-                use: [{loader: "file-loader", options: {outputPath: "images/"}}]
+                use: [{loader: "file-loader", options: {outputPath: "images/", publicPath: '/images/'}}]
             },
             {
                 test: /\.css$/,
@@ -64,6 +64,12 @@ module.exports = {
             })
         ],
     },
+    resolve: {
+        alias: {
+            'react': path.resolve(__dirname, './node_modules/react'),
+            'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+        }
+    },
     externals: {
         // Don't bundle react or react-dom
         react: {
@@ -82,10 +88,10 @@ module.exports = {
     plugins: [
         new ProgressBarPlugin(),
         new MiniCssExtractPlugin({
-            filename: "css/bundle.[contentHash].css"
+            filename: "styles.min.css"
         }),
         new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /css\/bundle\..*\.css$/,
+            assetNameRegExp: /styles\.min\.css$/,
             cssProcessor: require("cssnano"),
             cssProcessorOptions: {parser: safeParser, discardComments: {removeAll: true}},
             canPrint: true
