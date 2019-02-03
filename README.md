@@ -1,4 +1,4 @@
-## React Type It
+# React Type It
 
 [![](https://img.shields.io/npm/v/react-typeit.svg?style=flat)](https://www.npmjs.com/package/react-typeit)
 [![](https://img.shields.io/npm/dt/react-typeit.svg?style=flat)](https://www.npmjs.com/package/react-typeit)
@@ -24,8 +24,7 @@ To get the editors content use the onChange prop
 ```javascript
 <TypeIt onChange={content => console.log(content)} />
 ```
-Support
--------
+## Support
+[![Issues](http://img.shields.io/github/issues/rajohan/react-typeit.svg)](https://github.com/rajohan/react-typeit/issues)
 
 __Bugs and requests__: submit them through the project's issues tracker.<br>
-[![Issues](http://img.shields.io/github/issues/rajohan/react-typeit.svg)](https://github.com/rajohan/react-typeit/issues)
