@@ -17,7 +17,7 @@ A simple lightweight WYSIWYG editor
 $ npm i react-typeit
 ```
 
-## Usage
+## Getting Started
 ```javascript
 import TypeIt from "react-typeit";
 import "react-typeit/build/styles.min.css"
@@ -25,6 +25,7 @@ import "react-typeit/build/styles.min.css"
 **IMPORTANT:** For the editor icons to work copy the "images" folder from /node_modules/react-typeit/build/ to your project's public path.
 The images needs to resolve on YOUR_SERVER/images/react-typeit
 
+## Usage
 To get the editors content use the onChange prop
 ```javascript
 <TypeIt onChange={content => console.log(content)} />
