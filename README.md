@@ -31,7 +31,8 @@ To get the editors content use the onChange prop
 <TypeIt onChange={content => console.log(content)} />
 ```
 ## Support
-__Bugs and requests__: submit them through the project's issues tracker.<br>
+__Bugs and requests__: submit them through the project's issues tracker.
+
 [![Issues](http://img.shields.io/github/issues/rajohan/react-typeit.svg)](https://github.com/rajohan/react-typeit/issues)
 
 ## License and author info
