@@ -1,11 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 import TextEditor from "./TextEditor";
 
-const Root = () => {
+const TypeIt = props => <TextEditor {...props}/>;
 
-    return <TextEditor/>;
-};
-
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<TypeIt/>, document.getElementById("root"));

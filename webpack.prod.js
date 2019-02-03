@@ -1,6 +1,6 @@
 const path = require("path");
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safeParser = require('postcss-safe-parser');
@@ -9,11 +9,15 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: ['@babel/polyfill', "./src/index.js"],
+    entry: ["@babel/polyfill", "./src/TextEditor.js"],
     output: {
         filename: "index.js",
         path: path.resolve(__dirname, "build"),
-        publicPath: "./"
+        publicPath: "./",
+        library: "ReactTypeIt",
+        libraryTarget: "umd",
+        umdNamedDefine: true,
+        globalObject: 'typeof self !== \'undefined\' ? self : this',
     },
     mode: "production",
     stats: {children: false},
@@ -49,6 +53,17 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                terserOptions: {
+                    output: {
+                        comments: false,
+                    },
+                },
+            })
+        ],
+    },
     externals: {
         // Don't bundle react or react-dom
         react: {
@@ -64,17 +79,6 @@ module.exports = {
             root: "ReactDOM"
         }
     },
-    optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    output: {
-                        comments: false
-                    }
-                }
-            })
-        ],
-    },
     plugins: [
         new ProgressBarPlugin(),
         new MiniCssExtractPlugin({
@@ -87,6 +91,6 @@ module.exports = {
             canPrint: true
         }),
         new CopyWebpackPlugin([{from: 'src/images', to: 'images'}]),
-        new CleanWebpackPlugin("build"),
+        new CleanWebpackPlugin("build")
     ]
 };

@@ -4,7 +4,7 @@ import config from "./config";
 import "./styles/styles.scss";
 import Toolbar from "./Toolbar";
 
-const TextEditor = (props) => {
+const TextEditor = props => {
 
     const editor = useRef();
 
