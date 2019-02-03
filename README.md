@@ -37,8 +37,8 @@ __Bugs and requests__: submit them through the project's issues tracker.<br>
 **React-TypeIt** © 2018, Raymond Johannessen. Released under the [MIT] License.<br>
 Authored and maintained by Raymond Johannessen.
 
-> [rajohan.no](https://rajohan.no) &nbsp;&middot;&nbsp;
-> GitHub [@rajohan](https://github.com/rajohan) &nbsp;&middot;&nbsp;
-> Twitter [@rajohan](https://twitter.com/rajohan)
+[rajohan.no](https://rajohan.no) &nbsp;&middot;&nbsp;
+GitHub [@rajohan](https://github.com/rajohan) &nbsp;&middot;&nbsp;
+Twitter [@rajohan](https://twitter.com/rajohan)
 
 [MIT]: http://mit-license.org/
