@@ -36,7 +36,7 @@ To get the editors content use the onChange prop
 __Bugs and requests__: submit them through the project's issues tracker.<br>
 
 ## License and author info
-**React-TypeIt** © 2018, Raymond Johannessen. Released under the [MIT] License.<br>
+Released under the [MIT] License.<br>
 Authored and maintained by Raymond Johannessen.
 
 > [rajohan.no](https://rajohan.no) &nbsp;&middot;&nbsp;
