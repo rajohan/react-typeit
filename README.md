@@ -34,7 +34,7 @@ To use the component simply render it
 
 #### Props
 `onChange(content)` : Returns the new content of the editor after change.<br>
-`config(yourConfig)` : Pass your own config to the editor<br>
+`config(yourConfig)` : Pass your own config to the editor<br> (optional)
 
 #### Example
 ```javascript
