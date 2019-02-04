@@ -1,11 +1,12 @@
 import React, {useEffect, useRef, useState} from "react";
 
-import config from "./config";
+import defaultConfig from "./config";
 import "./styles/styles.scss";
 import Toolbar from "./Toolbar";
 
-const TextEditor = props => {
+const TypeIt = props => {
 
+    const {config} = props;
     const editor = useRef();
 
     const [content, setContent] = useState("");
@@ -154,8 +155,9 @@ const TextEditor = props => {
     );
 };
 
-TextEditor.defaultProps = {
-    onChange: () => {}
+TypeIt.defaultProps = {
+    onChange: () => {},
+    config: defaultConfig
 };
 
-export default TextEditor;
+export default TypeIt;

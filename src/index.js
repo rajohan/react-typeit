@@ -1,8 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import TextEditor from "./TextEditor";
+import TypeIt from "./TypeIt";
+import config from "./config";
 
-const TypeIt = props => <TextEditor {...props}/>;
+const Root = () => {
+    return(
+        <TypeIt
+            onChange={content => console.log(content)}
+            config={config}
+        />
+    );
+};
 
-ReactDOM.render(<TypeIt/>, document.getElementById("root"));
+ReactDOM.render(<Root/>, document.getElementById("root"));
