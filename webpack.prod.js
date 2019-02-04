@@ -9,7 +9,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: ["@babel/polyfill", "./src/TextEditor.js"],
+    entry: ["@babel/polyfill", "./src/TypeIt.js"],
     output: {
         filename: "reactTypeIt.min.js",
         path: path.resolve(__dirname, "build"),
