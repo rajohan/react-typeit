@@ -1,7 +1,8 @@
 {
   "name": "react-typeit",
-  "version": "0.1.0-beta.1",
   "description": "Simple and light weight React WYSIWYG editor",
+  "homepage": "https://rajohan.no/typeit",
+  "version": "0.1.0-beta.1",
   "license": "MIT",
   "author": {
     "name": "Raymond Johannessen",
@@ -10,7 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rajohan/typeit.git"
+    "url": "https://github.com/rajohan/react-typeit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rajohan/react-typeit/issues",
+    "email": "mail@rajohan.no"
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js",
