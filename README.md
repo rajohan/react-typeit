@@ -36,7 +36,7 @@ To use the component simply render it
 `onChange(content)` : Returns the new content of the editor after change.<br>
 `config(yourConfig)` : Pass your own config to the editor<br>
 
-#### Examples
+#### Example
 ```javascript
 import TypeItConfig from "./myConfig";
 
