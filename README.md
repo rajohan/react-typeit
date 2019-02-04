@@ -22,7 +22,7 @@ $ npm i react-typeit
 import TypeIt from "react-typeit";
 import "react-typeit/build/styles.min.css"
 ```
-**IMPORTANT:** For the editor icons to work copy the "images" folder from /node_modules/react-typeit/build/ to your project's public path.
+**Note:** For the editor icons to work copy the "images" folder from /node_modules/react-typeit/build/ to your project's public path.
 The images needs to resolve on YOUR_SERVER/images/react-typeit
 
 ## Use the component
@@ -58,7 +58,7 @@ a new "group" of tools that gets separated with a border right from the next too
 `emoticons.icons` : available emoticon icons
 
 **Note**
-1. toolbar.tools and toolbar.icons names need to be equal to the image name in your imgRoot
+1. toolbar.tools and toolbar.icons names need to be equal to the image name in your imgRoot (without the file extension)
 2. Only SVG icons are supported as they are injected to the html with [react-svg](https://www.npmjs.com/package/react-svg)
 
 **Default config**
