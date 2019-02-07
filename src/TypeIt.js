@@ -13,6 +13,12 @@ const TypeIt = props => {
     const [showSourceCode, toggleShowSourceCode] = useState(false);
     const [showEmoticonBox, toggleShowEmoticonBox] = useState(false);
     const [sourceCode, setSourceCode] = useState("");
+    const [toolbarState, setToolbarState] = useState({
+        bold: false,
+        italic: false,
+        underline: false,
+        strikethrough: false
+    });
 
     // Assign event handlers
     useEffect(() => {
