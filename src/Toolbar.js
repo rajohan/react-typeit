@@ -8,14 +8,19 @@ const Toolbar = props => {
 
     // Convert toolbar arrays to html img elements
     const convertToImg = tools.map(key => key.map(toolbarButton => {
+            // Toggle toolbar icon color
+            const isActiveButton = props.toolbarState[toolbarButton] ? {fill: "#0066CC"} : {};
+
             // Render icons from emoticons array and tool icon if tool key is emoticon
             if (toolbarButton === "emoticon") {
                 return (
                     <div className="text-editor__toolbox__emoticons__box__wrapper" key="emoticon">
                         <ReactSVG
-                            src={imgRoot + toolbarButton + ".svg"} key={toolbarButton}
+                            src={imgRoot + toolbarButton + ".svg"}
+                            key={toolbarButton}
                             svgClassName="text-editor__toolbox__icon"
                             onClick={() => props.onClick(toolbarButton)}
+                            svgStyle={isActiveButton}
                         />
                         {props.showEmoticonBox &&
                         <Emoticons
@@ -27,8 +32,13 @@ const Toolbar = props => {
                 )
             } else { // Render only tool icon
                 return (
-                    <ReactSVG src={imgRoot + toolbarButton + ".svg"} key={toolbarButton}
-                              svgClassName="text-editor__toolbox__icon" onClick={() => props.onClick(toolbarButton)} />
+                    <ReactSVG
+                        src={imgRoot + toolbarButton + ".svg"}
+                        key={toolbarButton}
+                        svgClassName="text-editor__toolbox__icon"
+                        onClick={() => props.onClick(toolbarButton)}
+                        svgStyle={isActiveButton}
+                    />
                 );
             }
         })
