@@ -13,17 +13,35 @@ const TypeIt = props => {
     const [showSourceCode, toggleShowSourceCode] = useState(false);
     const [showEmoticonBox, toggleShowEmoticonBox] = useState(false);
     const [sourceCode, setSourceCode] = useState("");
+    const [toolbarState, setToolbarState] = useState({
+        bold: false,
+        italic: false,
+        underline: false,
+        strikethrough: false,
+        listUnordered: false,
+        listOrdered: false,
+        alignLeft: true,
+        alignCenter: false,
+        alignRight: false,
+        alignJustify: false,
+        header1: false,
+        source: false
+    });
 
     // Assign event handlers
     useEffect(() => {
         editor.current.addEventListener("paste", pasteHandler, false);
         editor.current.addEventListener("focus", placeHolderHide, false);
         editor.current.addEventListener("blur", placeHolderShow, false);
+        editor.current.addEventListener("click", handleToolbarState,false);
+        editor.current.addEventListener("keydown", handleToolbarState,false);
 
         return () => {
             editor.current.removeEventListener("paste", pasteHandler, false);
             editor.current.removeEventListener("focus", placeHolderHide, false);
             editor.current.removeEventListener("blur", placeHolderShow, false);
+            editor.current.removeEventListener("click", handleToolbarState,false);
+            editor.current.removeEventListener("keydown", handleToolbarState,false);
         }
     }, []);
 
@@ -50,22 +68,25 @@ const TypeIt = props => {
         document.execCommand("insertText", false, text);
     };
 
-    const handleToolbarClick = toolbarButton => {
+    const handleToolbarClick = (toolbarButton) => {
         let selection = document.getSelection();
         let text = selection.toString() ? selection.toString() : "&#8203;"; // &#8203; = invisible space
         let url = "";
-
 
         editor.current.focus();
 
         switch (toolbarButton) {
             case "bold":
+                setToolbarState(prevState => ({...prevState, bold: !prevState.bold}));
                 return document.execCommand("bold", false, null);
             case "italic":
+                setToolbarState(prevState => ({...prevState, italic: !prevState.italic}));
                 return document.execCommand("italic", false, null);
             case "underline":
+                setToolbarState(prevState => ({...prevState, underline: !prevState.underline}));
                 return document.execCommand("underline", false, null);
             case "strikethrough":
+                setToolbarState(prevState => ({...prevState, strikethrough: !prevState.strikethrough}));
                 return document.execCommand("strikethrough", false, null);
             case "header1":
                 return document.execCommand("insertHTML", false, `<h1>${text}</h1>`);
@@ -117,6 +138,7 @@ const TypeIt = props => {
             case "emoticon":
                 return toggleShowEmoticonBox(prevState => !prevState);
             case "source":
+                setToolbarState(prevState => ({...prevState, source: !prevState.source}));
                 return toggleShowSourceCode(prevState => !prevState);
             default:
                 return console.log(toolbarButton + " is not a supported button");
@@ -131,7 +153,47 @@ const TypeIt = props => {
             `<img src="${config.emoticons.imgRoot}${emoticon}.svg" class="text-editor__box__emoticon" alt="" />`);
     };
 
+    const handleToolbarState = () => {
+        setToolbarState(prevState => ({
+            bold: document.queryCommandState("bold"),
+            italic: document.queryCommandState("italic"),
+            underline: document.queryCommandState("underline"),
+            strikethrough: document.queryCommandState("strikethrough"),
+            listUnordered: document.queryCommandState("insertUnorderedList"),
+            listOrdered: document.queryCommandState("insertOrderedList"),
+            alignLeft: document.queryCommandState("justifyLeft"),
+            alignCenter: document.queryCommandState("justifyCenter"),
+            alignRight: document.queryCommandState("justifyRight"),
+            alignJustify: document.queryCommandState("justifyFull"),
+            header1: isChildOfTag("H1"),
+            header2: isChildOfTag("H2"),
+            source: prevState.source
+        }))
+    };
+
+    const isChildOfTag = tag => {
+        let isChild = false;
+        let selection = window.getSelection && window.getSelection();
+
+        if (selection && selection.rangeCount > 0) {
+            let currentNode = selection.getRangeAt(0).commonAncestorContainer;
+
+            // Loop through DOM tree in the editor, stop at text-editor root div if tag not found
+            while (currentNode.parentNode && currentNode.parentNode.className !== "text-editor") {
+                // Tag found isChildOfTag is true
+                if (currentNode.nodeName && currentNode.nodeName === tag) {
+                    isChild = true;
+                    break;
+                }
+                currentNode = currentNode.parentNode;
+            }
+        }
+
+        return isChild;
+    };
+
     const handleChange = () => {
+        handleToolbarState();
         setContent(editor.current.innerHTML);
         setSourceCode(editor.current.innerHTML);
     };
@@ -144,6 +206,7 @@ const TypeIt = props => {
                 showEmoticonBox={showEmoticonBox}
                 toggleShowEmoticonBox={() => toggleShowEmoticonBox(prevState => !prevState)}
                 onEmoticonClick={emoticon => onEmoticonClick(emoticon)}
+                toolbarState={toolbarState}
             />
             <div className="text-editor__box" data-placeholder="Your text..." contentEditable="true"
                  onInput={handleChange} ref={editor}>
