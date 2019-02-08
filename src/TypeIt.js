@@ -77,16 +77,12 @@ const TypeIt = props => {
 
         switch (toolbarButton) {
             case "bold":
-                setToolbarState(prevState => ({...prevState, bold: !prevState.bold}));
                 return document.execCommand("bold", false, null);
             case "italic":
-                setToolbarState(prevState => ({...prevState, italic: !prevState.italic}));
                 return document.execCommand("italic", false, null);
             case "underline":
-                setToolbarState(prevState => ({...prevState, underline: !prevState.underline}));
                 return document.execCommand("underline", false, null);
             case "strikethrough":
-                setToolbarState(prevState => ({...prevState, strikethrough: !prevState.strikethrough}));
                 return document.execCommand("strikethrough", false, null);
             case "header1":
                 return document.execCommand("insertHTML", false, `<h1>${text}</h1>`);
