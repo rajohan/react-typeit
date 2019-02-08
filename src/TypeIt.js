@@ -172,17 +172,21 @@ const TypeIt = props => {
     };
 
     const isChildOfTag = tag => {
-        let currentNode = window.getSelection().getRangeAt(0).commonAncestorContainer;
         let isChild = false;
+        let selection = window.getSelection && window.getSelection();
 
-        // Loop through DOM tree in the editor, stop at text-editor root div if tag not found
-        while(currentNode.parentNode && currentNode.parentNode.className !== "text-editor") {
-            // Tag found isChildOfTag is true
-            if(currentNode.nodeName && currentNode.nodeName === tag) {
-                isChild = true;
-                break;
+        if (selection && selection.rangeCount > 0) {
+            let currentNode = selection.getRangeAt(0).commonAncestorContainer;
+
+            // Loop through DOM tree in the editor, stop at text-editor root div if tag not found
+            while (currentNode.parentNode && currentNode.parentNode.className !== "text-editor") {
+                // Tag found isChildOfTag is true
+                if (currentNode.nodeName && currentNode.nodeName === tag) {
+                    isChild = true;
+                    break;
+                }
+                currentNode = currentNode.parentNode;
             }
-            currentNode = currentNode.parentNode;
         }
 
         return isChild;
