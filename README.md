@@ -12,6 +12,9 @@ A simple lightweight WYSIWYG editor
 
 **DEMO:** [https://rajohan.no/typeit](https://rajohan.no/typeit)
 
+**INFO** I have alot of school work at the moment but, a update will be comming soon. 
+I am working on a complete rewrite of the editor to make use of SlateJS.
+
 ## Installation
 ```
 $ npm i react-typeit
